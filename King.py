@@ -12,14 +12,12 @@ class King(Piece):
 
     def get_possible_moves(self, board):
         moves = []
-        moves.append(self.get_move(board, self.get_x(), self.get_y() + 1))
-        moves.append(self.get_move(board, self.get_x() + 1, self.get_y() + 1))
-        moves.append(self.get_move(board, self.get_x() + 1, self.get_y()))
-        moves.append(self.get_move(board, self.get_x() + 1, self.get_y() - 1))
-        moves.append(self.get_move(board, self.get_x(), self.get_y() - 1))
-        moves.append(self.get_move(board, self.get_x() - 1, self.get_y() - 1))
-        moves.append(self.get_move(board, self.get_x() - 1, self.get_y()))
-        moves.append(self.get_move(board, self.get_x() - 1, self.get_y() + 1))
+        directions = [(0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1)]
+
+        for dx, dy in directions:
+            x = self.get_x() + dx
+            y = self.get_y() + dy
+            moves.append(self.get_move(board, x, y))
 
         return self.remove_0_from_list(moves)
 
