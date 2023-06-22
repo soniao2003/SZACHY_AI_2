@@ -48,14 +48,13 @@ class Piece():
     def to_string(self):
         return self.get_color() + self.get_piece_type() + " "
 
-    @staticmethod
     def get_possible_diagonal_moves(self, board):
         moves = []
 
         directions = [(1, 1), (1, -1), (-1, -1), (-1, 1)]
 
         for direction in directions:
-            (x, y) = (self.x, self.y)
+            (x, y) = (self.get_x(), self.get_y())
             (dx, dy) = direction
 
             while True:
@@ -72,7 +71,7 @@ class Piece():
                     break
 
         return self.remove_0_from_list(moves)
-    @staticmethod
+
     def get_possible_horizontal_moves(self, board):
         moves = []
 
