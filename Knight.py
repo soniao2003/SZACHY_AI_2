@@ -13,9 +13,9 @@ class Knight(Piece):
 
     def get_possible_moves(self, board):
         moves = []
-        offsets = [(2, 1), (-1, 2), (-2, 1), (1, -2), (2, -1), (1, 2), (-2, -1), (-1, -2)]
+        directions = [(2, 1), (-1, 2), (-2, 1), (1, -2), (2, -1), (1, 2), (-2, -1), (-1, -2)]
 
-        for dx, dy in offsets:
+        for dx, dy in directions:
             x = self.get_x() + dx
             y = self.get_y() + dy
             moves.append(self.get_move(board, x, y))
