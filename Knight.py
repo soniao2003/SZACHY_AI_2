@@ -13,14 +13,12 @@ class Knight(Piece):
 
     def get_possible_moves(self, board):
         moves = []
-        moves.append(self.get_move(board, self.get_x()+2, self.get_y()+1))
-        moves.append(self.get_move(board, self.get_x()-1, self.get_y()+2))
-        moves.append(self.get_move(board, self.get_x()-2, self.get_y()+1))
-        moves.append(self.get_move(board, self.get_x()+1, self.get_y()-2))
-        moves.append(self.get_move(board, self.get_x()+2, self.get_y()-1))
-        moves.append(self.get_move(board, self.get_x()+1, self.get_y()+2))
-        moves.append(self.get_move(board, self.get_x()-2, self.get_y()-1))
-        moves.append(self.get_move(board, self.get_x()-1, self.get_y()-2))
+        offsets = [(2, 1), (-1, 2), (-2, 1), (1, -2), (2, -1), (1, 2), (-2, -1), (-1, -2)]
+
+        for dx, dy in offsets:
+            x = self.get_x() + dx
+            y = self.get_y() + dy
+            moves.append(self.get_move(board, x, y))
 
         return self.remove_0_from_list(moves)
 
