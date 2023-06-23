@@ -12,8 +12,8 @@ class Queen(Piece):
         return cls.PIECE_TYPE
 
     def get_possible_moves(self, board):
-        diagonal = Piece.get_possible_diagonal_moves(self, board)
-        horizontal = Piece.get_possible_horizontal_moves(self, board)
+        diagonal = self.get_possible_diagonal_moves(board)
+        horizontal = self.get_possible_horizontal_moves(board)
         return horizontal + diagonal
 
     def return_piece(self):
