@@ -12,7 +12,7 @@ class Bishop(Piece):
         return cls.PIECE_TYPE
 
     def get_possible_moves(self, board):
-        return Piece.get_possible_diagonal_moves(self, board)
+        return self.get_possible_diagonal_moves(board)
 
     def return_piece(self):
         return Bishop(self.get_x(), self.get_y(), self.get_color())
