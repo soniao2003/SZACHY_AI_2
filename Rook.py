@@ -12,7 +12,7 @@ class Rook(Piece):
         return cls.PIECE_TYPE
 
     def get_possible_moves(self, board):
-        return Piece.get_possible_horizontal_moves(self, board)
+        return self.get_possible_horizontal_moves(board)
 
     def return_piece(self):
         return Rook(self.get_x(), self.get_y(), self.get_color())
